@@ -121,7 +121,7 @@
 
     h1 {
       margin: 0 0 12px;
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(34px, 4vw, 56px);
       line-height: 1.05;
       letter-spacing: -0.5px;
     }
@@ -132,10 +132,28 @@
       color: #cbd5e1;
     }
 
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+
     p {
       margin: 0;
       color: var(--muted);
       line-height: 1.6;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    li + li {
+      margin-top: 6px;
     }
 
     .cta-row {
@@ -208,6 +226,105 @@
       gap: 12px;
     }
 
+    .section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 10px;
+    }
+
+    .stay-loop {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(17, 24, 39, 0.8));
+    }
+
+    .stay-loop::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -80px;
+      right: -60px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.25), transparent 60%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .stay-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stay-copy {
+      display: grid;
+      gap: 10px;
+    }
+
+    .stay-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      height: 100%;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.1);
+      color: #7dd3fc;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      font-size: 12px;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      width: fit-content;
+    }
+
+    .list-checks {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .list-checks li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .list-checks li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
     .mini-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -223,6 +340,37 @@
       font-weight: 600;
     }
 
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+      margin: 10px 0;
+    }
+
+    .waitlist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .waitlist input {
+      flex: 1 1 240px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.25);
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+      transition: border 120ms ease, box-shadow 120ms ease;
+    }
+
+    .waitlist input:focus {
+      border-color: rgba(34, 211, 238, 0.5);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
+    }
+
     footer {
       text-align: center;
       color: var(--muted);
@@ -236,56 +384,48 @@
     <header>
       <a class="brand" href="#">
         <span class="logo">B</span>
-        Builders &amp; Buyers Analytics
+        Builders and Buyers Analytics
       </a>
       <div class="pill">
         <span aria-hidden="true"></span>
-        New home for data-led dealmaking
+        Dashboard Login
       </div>
     </header>
 
     <section class="hero">
       <div class="card">
-        <p class="pill" style="margin: 0 0 12px 0;">Live • Insight Hub</p>
-        <h1>Analytics for the people building and buying the future.</h1>
-        <p>Welcome to the new home of Builders and Buyers Analytics—a single pane of glass for revenue-grade reporting, pipeline health, and market intelligence designed for fast-moving teams.</p>
+        <h1>See which AI startups are actually gaining traction.</h1>
+        <h3><em>Who’s building? Who’s winning? Who’s slowing down?</em></h3>
+        <p>Our Startup Tracker Dashboard follows public signals (usage, community, funding, hiring) to give a simple, clear view of what’s happening in the AI startup ecosystem.</p>
         <div class="cta-row">
-          <button class="btn btn-primary">Request a walkthrough</button>
-          <button class="btn btn-secondary">See sample insights</button>
-        </div>
-        <div class="stats">
-          <div class="stat">
-            <strong>45%</strong>
-            <small>Faster deal qualification</small>
-          </div>
-          <div class="stat">
-            <strong>3.2x</strong>
-            <small>Lift in win rate with guided playbooks</small>
-          </div>
-          <div class="stat">
-            <strong>Realtime</strong>
-            <small>Signals across buyers and builders</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <h2>What’s inside</h2>
-        <p>Built to surface the signals that matter and help teams act faster.</p>
-        <div class="mini-grid">
-          <div class="chip">Account pulse with AI notes</div>
-          <div class="chip">Forecast clarity by scenario</div>
-          <div class="chip">Buyer &amp; builder overlap maps</div>
-          <div class="chip">Team-ready storyboards</div>
-          <div class="chip">Executive-grade rollups</div>
-          <div class="chip">API-friendly data access</div>
+          <button class="btn btn-primary">Get the dashboard</button>
+          <button class="btn btn-secondary">View methodology</button>
         </div>
       </div>
     </section>
 
-    <footer>
-      Made for the teams who build and the leaders who buy. Let’s ship smarter.
-    </footer>
+    <section class="section stay-loop">
+      <div class="eyebrow">Real-time pulse on the AI startup ecosystem</div>
+      <div class="stay-grid">
+        <div class="stay-copy">
+          <p>Get the next <strong>Builders &amp; Buyers Report</strong> — our analytics readout on the AI startup ecosystem.</p>
+          <ul class="list-checks">
+            <li>Top <strong>rising AI startups</strong> with clear momentum signals</li>
+            <li>A few <strong>companies to watch</strong> across infra, tools, and apps</li>
+            <li>One page of <strong>commentary</strong> — concise, decision-ready</li>
+          </ul>
+        </div>
+        <div class="stay-card">
+          <p class="note"><strong>Want the next issue?</strong> Drop your email and we’ll send the Builders &amp; Buyers Report as soon as it’s live.</p>
+          <div class="waitlist">
+            <input type="email" placeholder="you@example.com" aria-label="Email for waitlist">
+            <button class="btn btn-primary">Join waitlist</button>
+          </div>
+          <p class="note">We send once a month. No spam, just the signal.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 </body>
 </html>
